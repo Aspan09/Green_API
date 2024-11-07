@@ -9,8 +9,6 @@ sys.path.append(os.path.join(BASE_DIR, 'apps'))
 
 ALLOWED_HOSTS = ["*"]
 
-APPEND_SLASH = False
-
 # Application definition
 
 DJANGO_LIBRARY = [
@@ -20,6 +18,7 @@ DJANGO_LIBRARY = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders'
 ]
 
 PROJECT_APPS = [
@@ -28,9 +27,17 @@ PROJECT_APPS = [
 
 INSTALLED_APPS = DJANGO_LIBRARY + PROJECT_APPS
 
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
+APPEND_SLASH = False
+CORS_ALLOWED_ORIGINS = [
+    "http://212.233.79.164",
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
