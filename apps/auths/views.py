@@ -123,3 +123,4 @@ def send_file_by_url(request):
         return JsonResponse(response_data)
 
     return JsonResponse({"error": "Invalid request method"}, status=400)
+
